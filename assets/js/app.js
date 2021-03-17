@@ -38,27 +38,32 @@ buttonLimpiar.addEventListener("click", function() {
 
 buttonGuardar.addEventListener("click", function() {
 
-    alumnos[posicion] = textNombre.value;
-    calificaciones[posicion] = textCalificacion.value;
+    if (textNombre.value.length > 1 && textCalificacion.value.length > 1) {
+        alumnos[posicion] = textNombre.value;
+        calificaciones[posicion] = textCalificacion.value;
 
-    tableData += `
-        <tr>
-            <td>${posicion}</td>
-            <td>${alumnos[posicion]}</td>
-            <td>${calificaciones[posicion]}</td>
-            <td>Sin definir</td>
-        </tr>
-    `;
+        tableData += `
+            <tr>
+                <td>${posicion}</td>
+                <td>${alumnos[posicion]}</td>
+                <td>${calificaciones[posicion]}</td>
+                <td>Sin definir</td>
+            </tr>
+        `;
 
-    tableBody.innerHTML = tableData;
+        tableBody.innerHTML = tableData;
 
 
-    posicion++;
+        posicion++;
+
+    } else {
+        alert("Ingrese información válida")
+    }
+
     textNombre.value = '';
     textCalificacion.value = '';
     console.log(alumnos);
     console.log(calificaciones);
-
 });
 
 
